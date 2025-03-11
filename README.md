@@ -31,10 +31,18 @@
 ## 安装
 
 1. 克隆或下载此仓库：
+
+GitHub:
 ```bash
-git clone [仓库地址]
-cd YoutubeDownloader
+git clone git@github.com:StevenHFY/youtube-downloader.git
 ```
+
+JihuLab:
+```bash
+git clone git@jihulab.com:Steven6880/youtube-downloader.git
+```
+
+cd youtube-downloader
 
 2. 安装依赖：
 ```bash
