@@ -25,6 +25,7 @@
 ## 系统要求
 
 - Python 3.8 或更高版本
+- FFmpeg（用于视频处理和音视频合并）
 - 网络连接
 - 足够的磁盘空间
 
@@ -44,9 +45,27 @@ git clone git@jihulab.com:Steven6880/youtube-downloader.git
 
 cd youtube-downloader
 
-2. 安装依赖：
+2. 安装 Python 依赖：
 ```bash
 pip install -r requirements.txt
+```
+
+3. 安装 FFmpeg：
+
+macOS（使用 Homebrew）：
+```bash
+brew install ffmpeg
+```
+
+Windows（使用 Chocolatey）：
+```bash
+choco install ffmpeg
+```
+
+Linux（Ubuntu/Debian）：
+```bash
+sudo apt-get update
+sudo apt-get install ffmpeg
 ```
 
 ## 使用方法
@@ -110,12 +129,44 @@ python youtube_downloader.py
    - WebM 格式文件较小
    - 选择合适的分辨率以平衡质量和文件大小
 
+4. 视频没有声音
+   - 确保已安装 FFmpeg
+   - 检查 FFmpeg 是否在系统路径中
+   - 尝试重新安装 FFmpeg
+   - 选择不同的视频格式
+
+5. FFmpeg 相关问题
+   - 确保 FFmpeg 版本最新
+   - 检查系统环境变量设置
+   - Windows 用户需要重启终端
+   - 如遇到权限问题，以管理员身份运行
+
 ## 更新日志
 
 - 2024.03: 
   - 使用 yt-dlp 重写下载核心
   - 添加格式选择功能
   - 改进进度显示
+  - 添加 FFmpeg 支持，解决视频无声音问题
+  - 优化视频合并和转码功能
+  - 更新依赖要求
+
+## 依赖说明
+
+主要依赖包：
+- yt-dlp >= 2023.11.16：YouTube 视频下载核心
+- tqdm == 4.66.1：进度条显示
+- requests >= 2.31.0：网络请求处理
+- colorama >= 0.4.6：终端颜色输出
+- ffmpeg-python >= 0.2.0：FFmpeg 接口
+- rich >= 13.7.0：终端美化
+
+系统依赖：
+- FFmpeg：用于视频处理
+  - 音视频流合并
+  - 格式转换
+  - 视频编码
+  - 元数据处理
 
 ## 许可证
 
